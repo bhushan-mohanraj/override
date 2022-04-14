@@ -2,7 +2,6 @@
 A helper decorator to override methods from superclasses.
 """
 
-
 def override(superclass: type):
     """
     Check that a subclass can override a superclass method.
