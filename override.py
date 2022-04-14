@@ -18,20 +18,18 @@ def override(superclass: type):
         Check that the superclass has a method of the same name.
         """
 
-        if not hasattr(superclass, method.__name__):
-            raise NotImplementedError(
-                f"The superclass `{superclass}`"
-                f" has no method named `{method.__name__}`."
-            )
+        assert hasattr(superclass, method.__name__), (
+            f"The superclass `{superclass}`"
+            f" has no method named `{method.__name__}`."
+        )
 
         superclass_method = getattr(superclass, method.__name__)
 
-        if type(superclass_method) is not type(method):
-            raise NotImplementedError(
-                f"The superclass `{superclass}`"
-                f" has an attribute named `{method.__name__}`,"
-                f" but the attribute should be a method to override."
-            )
+        assert type(superclass_method) is type(method), (
+            f"The superclass `{superclass}`"
+            f" has an attribute named `{method.__name__}`,"
+            f" but the attribute should be a method to override."
+        )
 
         return method
 
