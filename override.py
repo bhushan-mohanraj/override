@@ -2,6 +2,7 @@
 A helper decorator to override methods from superclasses.
 """
 
+
 def override(superclass: type):
     """
     Check that a subclass can override a superclass method.
@@ -9,7 +10,7 @@ def override(superclass: type):
 
     assert isinstance(superclass, type), (
         "The `superclass` attribute must be"
-        " a class with a method which the given method overrides."
+        " a class which the given method overrides."
     )
 
     def check_override(method):
@@ -20,7 +21,7 @@ def override(superclass: type):
         if not hasattr(superclass, method.__name__):
             raise NotImplementedError(
                 f"The superclass `{superclass}`"
-                f" does not implement the method `{method.__name__}`."
+                f" has no method named `{method.__name__}`."
             )
 
         superclass_method = getattr(superclass, method.__name__)
@@ -28,8 +29,8 @@ def override(superclass: type):
         if type(superclass_method) is not type(method):
             raise NotImplementedError(
                 f"The superclass `{superclass}`"
-                f" has an attribute named `{method.__name__}`"
-                f" that must be a method to override."
+                f" has an attribute named `{method.__name__}`,"
+                f" but the attribute should be a method to override."
             )
 
         return method
