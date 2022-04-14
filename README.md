@@ -19,7 +19,7 @@ on the method and the given superclass.
 Although the example below is relatively simple,
 the decorator helps especially
 in larger applications and packages
-or where class has multiple superclasses.
+or where a class has multiple superclasses.
 
 ```python
 from override import override
