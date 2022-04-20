@@ -5,7 +5,8 @@ A decorator for methods that override superclass methods.
 
 def override(superclass: type):
     """
-    Check that a subclass can override a superclass method.
+    Construct a decorator
+    to check whether a method can validly override a superclass method.
     """
 
     assert isinstance(superclass, type), (
@@ -15,7 +16,7 @@ def override(superclass: type):
 
     def check_override(method):
         """
-        Check that the superclass has a method of the same name.
+        Check whether a method can validly override a superclass method.
         """
 
         assert hasattr(superclass, method.__name__), (
