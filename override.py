@@ -1,5 +1,5 @@
 """
-A helper decorator to override methods from superclasses.
+A decorator for methods that override superclass methods.
 """
 
 
