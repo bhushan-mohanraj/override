@@ -6,13 +6,13 @@ A decorator for methods that override superclass methods.
 def override(superclass: type):
     """
     Construct a decorator
-    to check whether a method can validly override a superclass method.
+    to check whether a method can override a superclass method.
     """
 
     if not isinstance(superclass, type):
         raise TypeError(
-            "The `superclass` attribute must be"
-            " a class which the given method overrides."
+            "The `superclass` attribute"
+            " must be a class which the given method overrides."
         )
 
     def check_override(method):
